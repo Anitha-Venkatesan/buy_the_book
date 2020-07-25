@@ -1,6 +1,7 @@
 "use strict";
 
 const express = require("express");
+var compression = require("compression");
 const exphbs = require("express-handlebars");
 
 // Requiring our models for syncing
@@ -9,6 +10,7 @@ const db = require("./models");
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+app.use(compression());
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
